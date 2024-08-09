@@ -1,39 +1,29 @@
-pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) 
+// Input: nums = [0,0,1,1,1,2,2,3,3,4]
+// Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32
 {
-    let mut merged_index: i32 = (nums1.len() - 1) as i32;
-    let mut index_one = m - 1;
-    let mut index_two = n - 1;
-    
-    while merged_index >= 0
+    if nums.len() == 0 { return 0; }
+
+    let mut unique_index = 0;
+
+    for i in 1..nums.len()
     {
-        if index_one >= 0 && (index_two < 0 || nums1[index_one as usize] > nums2[index_two as usize])
+        if nums[i] != nums[unique_index]
         {
-            nums1[merged_index as usize] = nums1[index_one as usize];
-            index_one -= 1;
+            unique_index += 1;
+            nums[unique_index] = nums[i];
         }
-        else
-        {
-            nums1[merged_index as usize] = nums2[index_two as usize];
-            index_two -= 1;
-        }
-        merged_index -= 1;
     }
+
+    (unique_index + 1) as i32
 }
 
-fn main() 
+fn main()
 {
-    let mut numbers1 = vec![1, 2, 3, 0, 0, 0];
-    let mut numbers2 = vec![2, 5, 6];
-    merge(&mut numbers1, 3, &mut numbers2, 3);
-    println!("{:?}", numbers1); // Output: [1, 2, 2, 3, 5, 6]
-
-    let mut numbers1 = vec![1];
-    let mut numbers2 = vec![2, 0];
-    merge(&mut numbers1, 1, &mut numbers2, 1);
-    println!("{:?}", numbers1); // Output: [1, 2]
-
-    let mut numbers1 = vec![0];
-    let mut numbers2 = vec![1];
-    merge(&mut numbers1, 0, &mut numbers2, 1);
-    println!("{:?}", numbers1); // Output: [1]
+    let mut nums: Vec<i32> = vec![0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 5];
+    let mut nums_repeating: Vec<i32> = vec![0; 10];
+    println!("{}", remove_duplicates(&mut nums));
+    println!("{:?}", nums);
+    println!("{}", remove_duplicates(&mut nums_repeating));
+    println!("{:?}", nums_repeating);
 }
