@@ -1,5 +1,8 @@
-// Input: nums = [0,0,1,1,1,2,2,3,3,4]
-// Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+/*
+Had to remove duplicates from a Vector<i32> replaced them with 0 
+and moved the 0's to the back. Function alters vector passed to it 
+and returns the length of valid indices as a i32.
+*/
 pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32
 {
     if nums.len() == 0 { return 0; }
@@ -26,4 +29,6 @@ fn main()
     println!("{:?}", nums);
     println!("{}", remove_duplicates(&mut nums_repeating));
     println!("{:?}", nums_repeating);
+    // Input: nums = [0,0,1,1,1,2,2,3,3,4]
+    // Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 }
