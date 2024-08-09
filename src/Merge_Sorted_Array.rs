@@ -1,3 +1,6 @@
+/*
+Takes two sorted arrays and merges them into one sorted array in O(n) time.
+*/
 pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) 
 {
     let mut merged_index: i32 = (nums1.len() - 1) as i32;
