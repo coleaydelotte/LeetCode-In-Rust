@@ -2,6 +2,7 @@
 Had to remove duplicates from a Vector<i32> replaced them with 0 
 and moved the 0's to the back. Function alters vector passed to it 
 and returns the length of valid indices as a i32.
+time Complexity: O(n)
 */
 pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32
 {

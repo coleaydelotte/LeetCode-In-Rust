@@ -2,6 +2,7 @@
 Problem: Remove Element
 Given an integer array nums and an integer val, remove all occurrences of val
 in nums in-place. The relative order of the elements may be changed.
+time Complexity: O(n)
 */
 pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
     let mut k: usize = 0 as usize;
